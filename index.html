@@ -1,0 +1,831 @@
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
+<style type="text/css">:root {
+            --primary-blue: #1e5fa8;
+            --secondary-blue: #2a6bb3;
+            --dark-blue: #164080;
+            --darker-blue: #0d2847;
+            --accent-gold: #ffd700; /* Bright gold */
+            --light-gold: #ffed4e; /* Lighter gold */
+            --warm-orange: #ff9900; /* New warm accent */
+            --deep-orange: #cc7a00; /* Deeper orange for shadows */
+            --white: #ffffff;
+            --light-grey: #f0f8ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', 'Poppins', sans-serif;
+            line-height: 1.8; /* Increased line height for Ukrainian */
+            overflow-x: hidden;
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: left; /* Left-to-right for Ukrainian */
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--primary-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+            /* Added depth and warmth */
+            box-shadow: inset 0 -20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid var(--warm-orange);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+            /* Added depth */
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        .logo-section {
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+            display: none; /* Hide the Tyche x IIIM logo section as per new request */
+        }
+
+        .project-title {
+            font-family: 'Open Sans', 'Montserrat', sans-serif;
+            font-size: 4.5rem; /* Larger font size */
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            background: linear-gradient(45deg, var(--white), var(--light-grey));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+        }
+
+        .project-subtitle {
+            font-family: 'Open Sans', 'Montserrat', sans-serif;
+            font-size: 2.2rem; /* Larger font size */
+            font-weight: 600;
+            margin-bottom: 2rem; /* Reduced margin */
+            color: var(--warm-orange); /* Use warm orange for subtitle */
+            animation: fadeInUp 1s ease-out 0.8s both;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+        }
+
+        .hero p {
+            font-size: 1.2rem; /* Slightly larger font */
+            opacity: 0.95; /* More opaque */
+            animation: fadeInUp 1s ease-out 1s both;
+            line-height: 1.8; /* Increased line height for readability */
+            max-width: 700px;
+            margin: 1.5rem auto; /* Adjusted margins */
+        }
+
+        /* Key Message Section */
+        .key-message {
+            background: var(--dark-blue);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            /* Added depth */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-bottom: 5px solid var(--deep-orange);
+        }
+        .key-message::before { /* Warm subtle glow effect */
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(255,153,0,0.3) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .key-message h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.2rem; /* Larger font size */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange)); /* Gold to orange gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .key-message p {
+            font-size: 1.4rem; /* Larger font size */
+            max-width: 900px; /* Wider text area */
+            margin: 0 auto 3.5rem; /* Increased margin */
+            line-height: 1.8;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.7rem 3.5rem; /* Larger padding */
+            background: linear-gradient(45deg, var(--warm-orange), var(--light-gold)); /* Orange to light gold */
+            color: var(--darker-blue); /* Darker text color */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem; /* Larger font size */
+            border-radius: 60px; /* More rounded */
+            transition: all 0.4s ease; /* Slower transition */
+            box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4); /* Stronger shadow with orange tint */
+            animation: pulse 2s infinite, fadeInUp 1s ease-out 0.4s both; /* Added pulse animation */
+            text-transform: uppercase;
+            letter-spacing: 2px; /* More letter spacing */
+            border: 2px solid var(--white); /* Added border */
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 20px 50px rgba(255, 153, 0, 0.6); /* Even stronger shadow */
+            background: linear-gradient(45deg, var(--light-gold), var(--warm-orange)); /* Reversed gradient on hover */
+            border-color: var(--accent-gold); /* Gold border on hover */
+        }
+
+        /* New sections for additional options */
+        .additional-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem; /* Space between cards */
+            margin-top: 4rem; /* Spacing from CTA button */
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 100%;
+            max-width: 450px; /* Max width for each card */
+            text-align: center;
+            color: var(--white);
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out; /* Fade in animation */
+        }
+
+        .option-card::before { /* Subtle background pattern/effect */
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+            z-index: 0;
+            transform: rotate(15deg);
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+            border-color: var(--accent-gold); /* Highlight border */
+        }
+
+        .option-card h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold); /* Gold color for titles */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .option-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .option-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange)); /* Gold to warm orange */
+            color: var(--darker-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--white);
+        }
+
+        .option-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 153, 0, 0.5);
+            background: linear-gradient(45deg, var(--light-gold), var(--accent-gold)); /* Lighter gradient on hover */
+            border-color: var(--accent-gold);
+        }
+
+        /* The "З Тобою" Process Section */
+        .process-section {
+            padding: 6rem 2rem; /* More padding */
+            background: linear-gradient(180deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .process-section h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.2rem; /* Larger font size */
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4rem; /* More margin */
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min width slightly larger */
+            gap: 3rem; /* More gap */
+        }
+
+        .process-step-card {
+            background: rgba(255, 255, 255, 0.08); /* Slightly less opaque */
+            padding: 3rem; /* More padding */
+            border-radius: 25px; /* More rounded */
+            backdrop-filter: blur(12px); /* Stronger blur */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+            color: var(--white);
+            transition: all 0.4s ease; /* Slower transition */
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            position: relative; /* For connector lines if needed later */
+            overflow: hidden;
+        }
+
+        .process-step-card::before { /* Inner glow effect */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.05) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .process-step-card:hover {
+            transform: translateY(-12px) scale(1.02); /* More pronounced lift and slight scale */
+            background: rgba(255, 255, 255, 0.15); /* More opaque on hover */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35); /* Even stronger shadow */
+            border-color: var(--warm-orange); /* Highlight border on hover */
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            width: 80px; /* Larger number bubble */
+            height: 80px;
+            background: linear-gradient(45deg, var(--warm-orange), var(--accent-gold)); /* Warm gradient */
+            color: var(--darker-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem; /* Larger number */
+            font-weight: 700;
+            margin: 0 auto 1.8rem; /* More margin */
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); /* Stronger warm shadow */
+            transition: all 0.3s ease;
+        }
+
+        .process-step-card:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 153, 0, 0.6);
+        }
+
+        .step-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.6rem; /* Larger font size */
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--accent-gold); /* Gold color */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-description {
+            font-size: 1.1rem; /* Slightly larger font */
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 6rem 2rem; /* More padding */
+            background: linear-gradient(135deg, var(--darker-blue) 0%, var(--dark-blue) 100%);
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .benefits::before { /* Warm subtle glow effect */
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(255,153,0,0.3) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .benefits h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.2rem; /* Larger font size */
+            font-weight: 700;
+            margin-bottom: 4rem; /* More margin */
+            background: linear-gradient(45deg, var(--white), var(--light-grey));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min width slightly larger */
+            gap: 2.5rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.06); /* Slightly less opaque */
+            padding: 2.5rem; /* More padding */
+            border-radius: 20px; /* More rounded */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease; /* Slower transition */
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before { /* Inner glow effect */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(255,255,255,0.05) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px) scale(1.01); /* More pronounced lift and slight scale */
+            background: rgba(255, 255, 255, 0.1); /* More opaque on hover */
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3); /* Even stronger shadow */
+            border-color: var(--warm-orange); /* Highlight border on hover */
+        }
+
+        .benefit-card h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.5rem; /* Slightly larger font */
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-card p {
+            font-size: 1.05rem; /* Slightly larger font */
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 5px solid var(--warm-orange); /* Warm border */
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.6rem; /* Slightly larger */
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-info {
+            margin: 1.5rem 0; /* More margin */
+            opacity: 0.9;
+        }
+
+        .contact-link {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--light-gold);
+            text-decoration: underline;
+        }
+
+        .motto-footer {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.05rem; /* Slightly larger */
+            font-style: italic;
+            margin-top: 2rem;
+            opacity: 0.9;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+        }
+
+        .powered-by {
+            font-size: 0.85rem; /* Small font size */
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 3rem 0;
+            }
+            .hero-content {
+                padding: 2rem;
+            }
+            .project-title {
+                font-size: 3rem;
+            }
+            .project-subtitle {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .key-message h2, .process-section h2, .benefits h2 {
+                font-size: 2.5rem;
+            }
+            .key-message p {
+                font-size: 1.2rem;
+            }
+            .cta-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.1rem;
+            }
+            .additional-options {
+                flex-direction: column; /* Stack cards on smaller screens */
+                gap: 2rem;
+            }
+            .option-card {
+                max-width: 90%; /* Adjust width for small screens */
+            }
+            .process-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-step-card, .benefit-card {
+                padding: 2rem;
+            }
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            .step-title, .benefit-card h3 {
+                font-size: 1.4rem;
+            }
+            .step-description, .benefit-card p {
+                font-size: 1rem;
+            }
+            .footer-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 1rem;
+            }
+            .project-title {
+                font-size: 2.5rem;
+            }
+            .project-subtitle {
+                font-size: 1.3rem;
+            }
+            .key-message h2, .process-section h2, .benefits h2 {
+                font-size: 2.2rem;
+            }
+            .key-message p {
+                font-size: 1.05rem;
+            }
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            .option-card h3 {
+                font-size: 1.5rem;
+            }
+            .option-card p {
+                font-size: 1rem;
+            }
+            .option-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+</style>
+<section class="hero">
+<div class="hero-content">
+<h1 class="project-title">З Тобою</h1>
+
+<p class="project-subtitle">Безпечна. Легальна. Гуманна. Переосмислення міграції.</p>
+
+<p>Наша місія – запропонувати всебічний, безпечний та етичний шлях для <u>працівників</u> з усього світу, щоб знайти значущу роботу та новий дім в Італії. <u>Весь процес, від курсів італійської мови до працевлаштування, є абсолютно безкоштовним.</u> Ми боремося з торгівлею людьми.</p>
+
+<p>Ми віримо в майбутнє, де міграція — це подорож до розширення можливостей, а не невизначеності. Ваше благополуччя є центральним у всьому, що ми робимо.</p>
+</div>
+</section>
+
+<section class="key-message">
+<div class="container">
+<h2>Наше бачення: Переосмислення міграції</h2>
+
+<p>Проект "З Тобою" повністю переосмислює процес міграції. Ми розширюємо можливості працівників, надаючи їм необхідні інструменти та підтримку <u>до того, як</u> вони покинуть свою країну.</p>
+<a class="cta-button" href="https://forms.gle/TbS9uRbNZKozyxjv7" rel="noopener noreferrer" target="_blank">Подати заявку на роботу в Італії зараз! </a>
+
+<div class="additional-options">
+<div class="option-card animation-element">
+<h3>Для міграційних агентів</h3>
+
+<p>Ви міграційний агент або організація, яка поділяє наше бачення етичної міграції? Приєднуйтеся до нашої глобальної мережі та допоможіть нам переосмислити майбутнє безпечної міграції. Якщо ви ще не є етичним міграційним агентом, ми пропонуємо вам <u>можливості для навчання</u>, щоб ним стати.</p>
+<a class="option-button" href="https://forms.gle/55NHBQDTyEGfAHih9" rel="noopener noreferrer" target="_blank">Станьте нашим партнером </a></div>
+
+<div class="option-card animation-element">
+<h3>Безкоштовна реєстрація на курс італійської мови</h3>
+
+<p>Хочете вільно володіти італійською мовою та підготуватися до свого майбутнього в Італії? Зареєструйтеся на наші <u>повністю безкоштовні</u> курси італійської мови та розпочніть свій шлях вивчення мови вже сьогодні.</p>
+<a class="option-button" href="https://forms.gle/TbS9uRbNZKozyxjv7" rel="noopener noreferrer" target="_blank">Зареєструватися тут </a></div>
+</div>
+</div>
+</section>
+
+<p>---</p>
+
+<section class="process-section text-center">
+<div class="container">
+<h2>Процес "З Тобою": Ваш покроковий шлях до Італії</h2>
+
+<div class="process-grid">
+<div class="process-step-card">
+<div class="step-number">1</div>
+
+<h3 class="step-title">Вивчення мови та подача резюме</h3>
+
+<p class="step-description">Розпочніть свій <u>безкоштовний</u> курс італійської мови. Під час реєстрації у вас буде можливість завантажити своє резюме, щоб розпочати процес пошуку роботи.</p>
+</div>
+
+<div class="process-step-card">
+<div class="step-number">2</div>
+
+<h3 class="step-title">Пошук компанії та еквівалентність кваліфікацій</h3>
+
+<p class="step-description">Під час вашого навчання ми починаємо пошук італійських та європейських компаній, зацікавлених у вашому професійному профілі. Одночасно ми розпочнемо процес апостилювання та присяжного перекладу ваших академічних кваліфікацій.</p>
+</div>
+
+<div class="process-step-card">
+<div class="step-number">3</div>
+
+<h3 class="step-title">Перше онлайн-співбесіда (рідною мовою)</h3>
+
+<p class="step-description">Проведіть своє перше онлайн-співбесіда з потенційними роботодавцями вашою рідною мовою, забезпечуючи чітке спілкування та ваш повний комфорт.</p>
+</div>
+
+<div class="process-step-card">
+<div class="step-number">4</div>
+
+<h3 class="step-title">Друга співбесіда (італійською мовою)</h3>
+
+<p class="step-description">Після завершення курсу італійської мови ви пройдете другу співбесіду із зацікавленою компанією, демонструючи свій прогрес та мовну готовність.</p>
+</div>
+
+<div class="process-step-card">
+<div class="step-number">5</div>
+
+<h3 class="step-title">Контракт та дозвіл на роботу</h3>
+
+<p class="step-description">Якщо компанія задоволена, вона надішле вам контракт для підписання та подасть заяву на ваш дозвіл на роботу на італійському імміграційному порталі для подачі до посольства Італії у вашій країні.</p>
+</div>
+
+<div class="process-step-card">
+<div class="step-number">6</div>
+
+<h3 class="step-title">Прибуття до Італії та негайний початок</h3>
+
+<p class="step-description">Отримайте дозвіл на роботу в посольстві. Компанія надішле вам квиток на літак та надасть адресу вашого проживання в Італії. Ви розпочнете працювати наступного дня після прибуття.</p>
+</div>
+</div>
+</div>
+</section>
+
+<p>---</p>
+
+<section class="benefits text-center">
+<div class="container">
+<h2>Етичні особливості "З Тобою"</h2>
+
+<div class="benefits-grid">
+<div class="benefit-card">
+<h3>Повна безпека</h3>
+
+<p>Усуньте ризики експлуатації та невизначеності. Кожен крок вашої подорожі юридично підтримується, повністю субсидується та розроблений для вашого захисту.</p>
+</div>
+
+<div class="benefit-card">
+<h3>Фінансова безпека</h3>
+
+<p>Почніть заробляти <u>негайно</u> після прибуття. Жодної втрати часу, жодного фінансового стресу, пов'язаного з пошуком роботи. Ваше майбутнє захищене з самого початку.</p>
+</div>
+
+<div class="benefit-card">
+<h3>Культурна інтеграція</h3>
+
+<p>Наші курси мови та культури готують вас не тільки до роботи, а й до нового життя. Відчуйте себе як вдома та легко адаптуйтеся.</p>
+</div>
+
+<div class="benefit-card">
+<h3>Професійний ріст</h3>
+
+<p>Отримайте цінний міжнародний досвід та створіть міцну, стійку кар'єру в Європі. Розкрийте свій повний потенціал.</p>
+</div>
+
+<div class="benefit-card">
+<h3>Сімейна підтримка</h3>
+
+<p>Завдяки гарантії роботи та житла, возз'єднання сім'ї стає чіткою та досяжною метою.</p>
+</div>
+
+<div class="benefit-card">
+<h3>Етична міграція</h3>
+
+<p>Приєднуйтесь до руху, яке віддає пріоритет людській гідності, прозорості та стійким міграційним практикам. Станьте частиною кращого шляху.</p>
+</div>
+</div>
+</div>
+</section>
+
+<p>---</p>
+
+<footer class="footer">
+<div class="footer-content">
+<h3 class="footer-title">З Тобою</h3>
+
+<p>Ваш безпечний міст до нових можливостей працевлаштування в Італії.</p>
+
+<div class="contact-info">
+<p>✉️ Електронна пошта: <a class="contact-link" href="mailto:info@tycheilma.com">info@tycheilma.com</a></p>
+
+<p>📞 WhatsApp: <a class="contact-link" href="https://wa.me/393462267861" target="_blank">+39 346 226 7861</a></p>
+
+<p>📱 Instagram: <a class="contact-link" href="https://instagram.com/tyche_ilma" target="_blank">@tyche_ilma</a> | <a class="contact-link" href="https://instagram.com/ilim_project" target="_blank">@ilim_project</a></p>
+</div>
+
+<p class="motto-footer">Для працівника процес з Tyche буде безкоштовним, тому що міграція вже дорога серцю. Проти торгівлі людьми, ми змінюємо уявлення про міграцію!</p>
+
+<p class="powered-by">Розроблено Tyche</p>
+
+<p style="margin-top: 0.5rem; opacity: 0.6;">© 2025 З Тобою. Усі права захищено.</p>
+</div>
+</footer>
+<script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.process-step-card, .benefit-card, .key-message h2, .key-message p, .cta-button, .process-section h2, .benefits h2, .option-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            el.style.animationFillMode = 'backwards';
+            observer.observe(el);
+        });
+
+        document.querySelector('.hero-content').style.animation = 'fadeInUp 1s ease-out forwards';
+        document.querySelector('.project-title').style.animation = 'fadeInUp 1s ease-out 0.6s both';
+        document.querySelector('.project-subtitle').style.animation = 'fadeInUp 1s ease-out 0.8s both';
+        document.querySelectorAll('.hero p').forEach((p, index) => {
+            p.style.animation = `fadeInUp 1s ease-out ${1 + index * 0.2}s both`;
+        });
+    </script>
